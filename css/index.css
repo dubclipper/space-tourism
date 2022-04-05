@@ -142,3 +142,32 @@
 .tab-list {
     --gap: 2rem;
 }
+
+.large-button {
+    display: grid;
+    place-items: center;
+    padding: 0 2em;
+    aspect-ratio: 1;
+    text-decoration: none;
+    border-radius: 50%;
+    position: relative;
+    z-index: 1;
+}
+
+.large-button::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    border-radius: inherit;
+    background: hsl( var(--clr-white) / .15 );
+    opacity: 0;
+    transition: opacity 500ms linear, transform 750ms ease-in-out;
+}
+
+.large-button:hover::after,
+.large-button:focus::after {
+    transform: scale(1.5);
+    opacity: 1;
+}
